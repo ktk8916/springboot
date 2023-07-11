@@ -20,11 +20,8 @@ public class JoinService {
         Member member = memberService.findById(joinRequest.memberId());
         Hobby hobby = hobbyService.findById(joinRequest.hobbyId());
 
-        MemberHobby memberHobby = new MemberHobby(member, hobby);
-
-        //주인이 바꾸면 될듯
-        member.addMemberHobby(memberHobby);
-        hobby.addMemberHobby(memberHobby);
+        //member, hobby에 추가하는과정이 createMemberHobby 속에 있음
+        MemberHobby memberHobby = MemberHobby.createMemberHobby(member, hobby);
 
         Store.memberHobbies.add(memberHobby);
     }

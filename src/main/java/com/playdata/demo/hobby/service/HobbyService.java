@@ -40,4 +40,20 @@ public class HobbyService {
         Hobby hobby = Hobby.createHobby(hobbyRequest.name());
         Store.hobbies.add(hobby);
     }
+
+    public List<HobbyResponse> findByName(String name){
+        return Store.hobbies
+                .stream()
+                .filter(hobby -> hobby.getName().contains(name))
+                .map(HobbyResponse::from)
+                .collect(Collectors.toList());
+    }
+
+    public List<HobbyResponse> searchHobbies(String name) {
+        if(name==null){
+            return findAll();
+        } else {
+            return findByName(name);
+        }
+    }
 }

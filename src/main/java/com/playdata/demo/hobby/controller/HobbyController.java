@@ -16,15 +16,19 @@ public class HobbyController {
 
     private final HobbyService hobbyService;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Hobby findById(@PathVariable Integer id){
         return hobbyService.findById(id);
     }
-
     @GetMapping
-    public List<HobbyResponse> findAll(){
-        return hobbyService.findAll();
+    public List<HobbyResponse> searchHobbies(@RequestParam(value = "name", required = false) String name){
+        return hobbyService.searchHobbies(name);
     }
+
+//    @GetMapping
+//    public List<HobbyResponse> findAll(){
+//        return hobbyService.findAll();
+//    }
     @PostMapping
     public void save(@RequestBody HobbyRequest hobbyRequest){
         hobbyService.save(hobbyRequest);

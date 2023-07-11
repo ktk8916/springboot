@@ -25,7 +25,7 @@ public class HobbyService {
                 .stream()
                 .filter(m-> m.getId().equals(id))
                 .findFirst()
-                .orElse(null); //일단 넘어가
+                .orElse(null);
 
     }
     public List<HobbyResponse> findAll(){

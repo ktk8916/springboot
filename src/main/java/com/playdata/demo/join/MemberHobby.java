@@ -11,4 +11,12 @@ public class MemberHobby {
 
     private Member member;
     private Hobby hobby;
+
+    public static MemberHobby createMemberHobby(Member member, Hobby hobby){
+
+        MemberHobby memberHobby = new MemberHobby(member, hobby);
+        member.getMemberHobbies().add(memberHobby);
+        hobby.getMemberHobbies().add(memberHobby);
+        return memberHobby;
+    }
 }

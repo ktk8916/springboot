@@ -3,6 +3,7 @@ package com.playdata.demo.member.service;
 import com.playdata.demo.member.domain.entity.Member;
 import com.playdata.demo.member.domain.request.MemberRequest;
 import com.playdata.demo.member.domain.response.MemberResponse;
+import com.playdata.demo.member.exception.MemberNotFoundException;
 import com.playdata.demo.store.Store;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class MemberService {
                 .stream()
                 .filter(m-> m.getId().equals(id))
                 .findFirst()
-                .orElseThrow(()->new IllegalArgumentException("member is not exist"));
+                .orElseThrow(()->new MemberNotFoundException("member is not exist", id));
     }
 
     public void save(MemberRequest memberRequest){

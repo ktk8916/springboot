@@ -25,7 +25,4 @@ public class Hobby {
         return hobby;
     }
 
-    public void addMemberHobby(MemberHobby memberHobby){
-        memberHobbies.add(memberHobby);
-    }
 }

@@ -32,7 +32,4 @@ public class Member {
         this.age = age;
     }
 
-    public void addMemberHobby(MemberHobby memberHobby){
-        memberHobbies.add(memberHobby);
-    }
 }

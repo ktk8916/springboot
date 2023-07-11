@@ -24,7 +24,7 @@ public class MemberService {
                 .stream()
                 .filter(m-> m.getId().equals(id))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(()->new IllegalArgumentException("member is not exist"));
     }
 
     public void save(MemberRequest memberRequest){

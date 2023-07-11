@@ -23,8 +23,10 @@ public class MemberController {
     }
 
     @GetMapping("/{id}")
-    public Member findById(@PathVariable("id") Integer id){
-        return memberService.findById(id);
+    public MemberResponse findById(@PathVariable("id") Integer id){
+        //이거 정도는 컨트롤러에서 바꿔도 괜춘?
+        //memberService에 findById -> Member, findById -> MemberResponse 따로 만들기 ?
+        return MemberResponse.from(memberService.findById(id));
     }
 
     @PostMapping
@@ -39,10 +41,10 @@ public class MemberController {
     }
 
     @PutMapping("{id}")
-    public Member updateById(
+    public MemberResponse updateById(
             @PathVariable("id") Integer id,
             @RequestBody MemberRequest memberRequest){
-        return memberService.update(id, memberRequest);
+        return MemberResponse.from(memberService.update(id, memberRequest));
     }
 
 }

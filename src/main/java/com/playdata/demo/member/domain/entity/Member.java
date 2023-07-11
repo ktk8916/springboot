@@ -19,10 +19,12 @@ public class Member {
     private Integer age;
     private List<Hobby> hobbies = new ArrayList<>();
 
-    public Member(String name, Integer age) {
-        this.id = Store.memberIndex++;
-        this.name = name;
-        this.age = age;
+    public static Member createMember(String name, Integer age){
+        Member member = new Member();
+        member.id = Store.memberIndex++;
+        member.name = name;
+        member.age = age;
+        return member;
     }
 
     public void updateMember(String name, Integer age){

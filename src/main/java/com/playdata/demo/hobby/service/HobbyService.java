@@ -26,7 +26,7 @@ public class HobbyService {
     public void save(HobbyRequest hobbyRequest) {
 
         Member member = memberService.findById(hobbyRequest.memberId());
-        Hobby hobby = new Hobby(hobbyRequest.name(), member);
+        Hobby hobby = Hobby.createHobby(hobbyRequest.name(), member);
         Store.hobbies.add(hobby);
         member.addHobby(hobby);
     }

@@ -15,9 +15,10 @@ public class Hobby {
     private String name;
     private Member member;
 
-    public Hobby(String name, Member member) {
-        this.id = Store.hobbyIndex++;
-        this.name = name;
-        this.member = member;
+    public static Hobby createHobby(String name, Member member){
+        Hobby hobby = new Hobby();
+        hobby.name = name;
+        hobby.member = member;
+        return hobby;
     }
 }

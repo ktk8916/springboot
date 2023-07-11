@@ -1,6 +1,6 @@
 package com.playdata.demo.member.domain.entity;
 
-import com.playdata.demo.hobby.domain.entity.Hobby;
+import com.playdata.demo.join.MemberHobby;
 import com.playdata.demo.store.Store;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class Member {
     private Integer id;
     private String name;
     private Integer age;
-    private List<Hobby> hobbies = new ArrayList<>();
+    private List<MemberHobby> memberHobbies = new ArrayList<>();
 
     public static Member createMember(String name, Integer age){
         Member member = new Member();
@@ -32,7 +32,7 @@ public class Member {
         this.age = age;
     }
 
-    public void addHobby(Hobby hobby){
-        hobbies.add(hobby);
+    public void addMemberHobby(MemberHobby memberHobby){
+        memberHobbies.add(memberHobby);
     }
 }

@@ -1,10 +1,13 @@
 package com.playdata.demo.hobby.domain.entity;
 
-import com.playdata.demo.member.domain.entity.Member;
+import com.playdata.demo.join.MemberHobby;
 import com.playdata.demo.store.Store;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,12 +16,16 @@ public class Hobby {
 
     private Integer id;
     private String name;
-    private Member member;
+    private List<MemberHobby> memberHobbies = new ArrayList<>();
 
-    public static Hobby createHobby(String name, Member member){
+    public static Hobby createHobby(String name){
         Hobby hobby = new Hobby();
+        hobby.id = Store.hobbyIndex++;
         hobby.name = name;
-        hobby.member = member;
         return hobby;
+    }
+
+    public void addMemberHobby(MemberHobby memberHobby){
+        memberHobbies.add(memberHobby);
     }
 }

@@ -1,6 +1,7 @@
 package com.playdata.demo.store;
 
 import com.playdata.demo.hobby.domain.entity.Hobby;
+import com.playdata.demo.join.MemberHobby;
 import com.playdata.demo.member.domain.entity.Member;
 
 import java.util.ArrayList;
@@ -12,4 +13,5 @@ public class Store {
     public static Integer memberIndex = 0;
     public static List<Hobby> hobbies = new ArrayList<>();
     public static Integer hobbyIndex = 0;
+    public static List<MemberHobby> memberHobbies = new ArrayList<>();
 }

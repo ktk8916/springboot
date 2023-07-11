@@ -1,5 +1,6 @@
 package com.playdata.demo.hobby.controller;
 
+import com.playdata.demo.hobby.domain.entity.Hobby;
 import com.playdata.demo.hobby.service.HobbyService;
 import com.playdata.demo.hobby.domain.request.HobbyRequest;
 import com.playdata.demo.hobby.domain.response.HobbyResponse;
@@ -14,6 +15,11 @@ import java.util.List;
 public class HobbyController {
 
     private final HobbyService hobbyService;
+
+    @GetMapping("{id}")
+    public Hobby findById(@PathVariable Integer id){
+        return hobbyService.findById(id);
+    }
 
     @GetMapping
     public List<HobbyResponse> findAll(){
